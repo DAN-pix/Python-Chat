@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
 
     <title>Your chat</title>
 </head>
+
 <body>
     <div class="header">
         <p>Your chat</p>
@@ -16,83 +18,79 @@
 
     <div class="container">
         <ul id="messages"></ul>
-        <input type="text" id="MyMessage">
+        <input type="text" id="myMessage">
         <button type="button" id="send" class="button">Send</button>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
     <script>
-        const socket = io();
-
-        // socket.emit('message', 'hello');
-
+        const socket = io()
+        // socket.emit('message', 'hello')
         socket.on('message', function (msg) {
-            $('#messages').append('<li>' + msg + '<li>')
+            $('#messages').append('<li>' + msg + '</li>')
         })
-
         $('#send').on('click', function () {
-        socket.send($('#MyMessage').val());
-        $('#MyMessage').val('');
+            socket.send($('#myMessage').val());
+            $('#myMessage').val('');
         })
-
     </script>
 
     <style>
         . {
-    margin: 0;
-    padding: 0;
-}
+            margin: 0;
+            padding: 0;
+        }
 
-body {
-    background: rgb(32, 34, 37);
-    color:#eeeeee;
-    font-family: 'Source Sans Pro', sans-serif;
-}
+        body {
+            background: rgb(32, 34, 37);
+            color: #eeeeee;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
 
-.header p {
-    font-size: 50px;
-    text-align: center;
-}
+        .header p {
+            font-size: 50px;
+            text-align: center;
+        }
 
-.container {
-    width: 98%;
-    max-width: 1000px;
-    border: 15px solid #36393F;
-    background-color: #36393F;
-    margin: auto;
-    font-size: 30px;
-}
+        .container {
+            width: 98%;
+            max-width: 1000px;
+            border: 15px solid #36393F;
+            background-color: #36393F;
+            margin: auto;
+            font-size: 20px;
+        }
 
-input {
-    border: 0;
-    border-radius: 50px;
-    background-color: rgb(64, 68, 75);
-    width: 90%;
-    height: 35px;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: 20px;
-    color: #eeeeee;
-}
+        input {
+            border: 0;
+            border-radius: 50px;
+            background-color: rgb(64, 68, 75);
+            width: 90%;
+            height: 35px;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 20px;
+            color: #eeeeee;
+        }
 
-.button {
-    border: 0;
-    border: 0;
-    border-radius: 50px;
-    background-color: rgb(64, 68, 75);
-    width: 7%;
-    height: 35px;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: 20px;
-    color: #eeeeee;
-}
+        .button {
+            border: 0;
+            border: 0;
+            border-radius: 50px;
+            background-color: rgb(64, 68, 75);
+            width: 7%;
+            height: 35px;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 20px;
+            color: #eeeeee;
+        }
 
-.button:hover {
-    background-color: rgb(74, 78, 85);
-}
+        .button:hover {
+            background-color: rgb(74, 78, 85);
+        }
     </style>
 
 </body>
+
 </html>
